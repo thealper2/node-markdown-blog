@@ -1,0 +1,14 @@
+<%- include('partials/header') %>
+
+    <div class="error">
+        <h2>Error</h2>
+        <p>
+            <%= message %>
+        </p>
+        <% if (locals.error) { %>
+            <pre><%= error.stack %></pre>
+            <% } %>
+                <a href="/" class="back-button">← Back to Home</a>
+    </div>
+
+    <%- include('partials/footer') %>

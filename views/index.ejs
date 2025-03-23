@@ -1,0 +1,54 @@
+<%- include('partials/header') %>
+
+    <div class="posts">
+        <h2>Latest Posts</h2>
+
+        <% if (posts.length===0) { %>
+            <p>No posts found.</p>
+            <% } else { %>
+                <% posts.forEach(post=> { %>
+                    <div class="post-card">
+                        <h3><a href="/post/<%= post.id %>">
+                                <%= post.title %>
+                            </a></h3>
+                        <div class="post-meta">
+                            <span class="date">
+                                <%= formatDate(post.date) %>
+                            </span>
+                            <% if (post.tags.length> 0) { %>
+                                <span class="tags">
+                                    <% post.tags.forEach(tag=> { %>
+                                        <span class="tag">
+                                            <%= tag %>
+                                        </span>
+                                        <% }) %>
+                                </span>
+                                <% } %>
+                        </div>
+                        <p class="excerpt">
+                            <%= post.excerpt %>
+                        </p>
+                        <a href="/post/<%= post.id %>" class="read-more">Read More</a>
+                    </div>
+                    <% }) %>
+
+                        <!-- Pagination -->
+                        <div class="pagination">
+                            <% if (currentPage> 1) { %>
+                                <a href="/?page=<%= currentPage - 1 %>" class="prev">Previous</a>
+                                <% } %>
+
+                                    <% for (let i=1; i <=totalPages; i++) { %>
+                                        <a href="/?page=<%= i %>" class="<%= i === currentPage ? 'current' : '' %>">
+                                            <%= i %>
+                                        </a>
+                                        <% } %>
+
+                                            <% if (currentPage < totalPages) { %>
+                                                <a href="/?page=<%= currentPage + 1 %>" class="next">Next</a>
+                                                <% } %>
+                        </div>
+                        <% } %>
+    </div>
+
+    <%- include('partials/footer') %>
