@@ -1,0 +1,29 @@
+{
+  "name": "markdown-blog",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "markdown",
+    "blog",
+    "node.js",
+    "express"
+  ],
+  "author": "Alper Karaca",
+  "license": "MIT",
+  "description": "A simple blog system using Markdown files",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-ejs-layouts": "^2.5.1",
+    "gray-matter": "^4.0.3",
+    "marked": "^15.0.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
